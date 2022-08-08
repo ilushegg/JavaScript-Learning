@@ -255,3 +255,71 @@
 // const htmlExample = `<h2>${title}</h2>`
 
 // container.insertAdjacentHTML('beforeend', htmlExample)
+
+// const todoList = document.querySelector('#todo-list')
+// const todoForm = document.querySelector('#todo-form')
+// const todoInput = document.querySelector('#todo-input')
+
+// todoForm.addEventListener('submit', formHandler)
+
+// function formHandler(event) {
+//     event.preventDefault()
+
+//     const taskText = todoInput.value
+//     // const liHtml = `<li>${taskText}</li>`
+//     const newTask = document.createElement('li')
+//     newTask.innerText = taskText
+
+    
+
+//     const deleteBtn = document.createElement('button')
+//     deleteBtn.setAttribute('role', 'button')
+//     deleteBtn.innerText = 'delete'
+//     deleteBtn.style['margin-left'] = '15px'
+//     deleteBtn.addEventListener('click', (e) => {
+//         e.target.closest('li').remove()
+//     });
+//     newTask.append(deleteBtn)
+
+//     todoList.append(newTask)
+
+//     //todoList.insertAdjacentHTML('beforeend', liHtml)
+
+//     todoInput.value = ''
+
+//     todoInput.focus()
+
+// }
+
+// const timerIntervalId = setInterval(function () {
+//     console.log('Fired!')
+// }, 1000)
+
+// setTimeout(function () {
+//     clearInterval(timerIntervalId)
+// }, 5000)
+const counterElement = document.querySelector('#counter')
+
+let counter = 0
+let timerId
+
+
+const btnStart = document.querySelector('#start')
+btnStart.onclick = function() {
+    timerId = setInterval(function() {
+        counter++
+        counterElement.innerText = counter
+    }, 1000)
+}
+
+const btnPause = document.querySelector('#pause')
+btnPause.onclick = function () {
+    clearInterval(timerId)
+}
+
+const btnReset = document.querySelector('#reset')
+btnReset.onclick = function () {
+    counter = 0
+    counterElement.innerText = counter
+    clearInterval(timerId)
+}
